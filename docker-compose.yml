@@ -1,0 +1,8 @@
+version: '2'
+services:
+    helloworld:    # 这是服务对应的名字，docker 实例运行后，这就会成为 DNS 记录，方便别的服务访问
+        image: tuzkimo/hello-world-rest-docker:demo    # docker-compose 首先会在本地仓库寻找镜像，找不到就到 Docker hub (http://hub.docker.com) 寻找
+        ports:
+            - "8080:8080"   # ports 指令把镜像内部的端口映射到外部对应的端口，冒号前是外部端口，冒号后是内部端口
+        environment:
+            PROFILE: "default"    # environment 指令用于传入环境变量，这里 PROFILE 变量用于控制配置参数的版本
